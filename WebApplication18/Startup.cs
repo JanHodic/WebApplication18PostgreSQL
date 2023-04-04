@@ -53,16 +53,15 @@ namespace WebApplication18
             var connectionString = Configuration.GetConnectionString("LocalMoviesConnection");
 
             services.AddDbContext<MoviesDbContext>(options =>
-                options.UseNpgsql(connectionString)
-                /*options =>
-                options.UseSqlServer(connectionString)
-                    .UseLazyLoadingProxies()
-                    .ConfigureWarnings(x => x.Ignore(CoreEventId.LazyLoadOnDisposedContextWarning))*/);
+                options.UseNpgsql(connectionString).EnableSensitiveDataLogging(true)
+                                );
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<ICarService, CarService>();
             services.AddAutoMapper(typeof(AutomapperConfigurationProfile));
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }

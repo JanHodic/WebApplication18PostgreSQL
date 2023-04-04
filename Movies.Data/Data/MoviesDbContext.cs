@@ -15,7 +15,7 @@ namespace Movies.Data.Data
         public DbSet<Person> Persons { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
-
+        public DbSet<Car> Cars { get; set; }
         public MoviesDbContext(DbContextOptions<MoviesDbContext> options)
         : base(options)
         {
@@ -80,6 +80,12 @@ namespace Movies.Data.Data
                 new Genre { Id = 4, Name = "romantic" },
                 new Genre { Id = 5, Name = "animated" },
                 new Genre { Id = 6, Name = "comedy" });
+            /*
+            modelBuilder.Entity<Car>().HasData(
+                new Car() { Id = 1, CarName = "Octavia", CompanyName = "AAA" },
+                new Car() { Id = 1, CarName = "Felicia", CompanyName = "BBB" },
+                new Car() { Id = 1, CarName = "Superb", CompanyName = "CCC" }
+                );*/
         }
     }
 }

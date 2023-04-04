@@ -12,6 +12,8 @@ namespace Movies.Api
         {
             CreateMap<Person, PersonDto>();
             CreateMap<PersonDto, Person>();
+            CreateMap<Car, CarDto>();
+            CreateMap<CarDto, Car>();
             CreateMap<Genre, string>()
                 .ConstructUsing((genre, resolutionContext) => genre.Name);
             CreateMap<Movie, MovieDto>()
